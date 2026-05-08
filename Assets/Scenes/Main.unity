@@ -11324,6 +11324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d429afa28b724d23a2b563ecae4f865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootPoint: {fileID: 66758865}
+  food: {fileID: 8582241234332741000, guid: 3c60fa65604c94a57b2389f2ba63e97e, type: 3}
 --- !u!4 &669423313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5220891408672472619, guid: 2d48a5ba5e9c424489a39d7577e631b8, type: 3}
