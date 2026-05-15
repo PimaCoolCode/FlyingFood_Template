@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7765940058239053740}
   - component: {fileID: 3629796274065301042}
   - component: {fileID: -5070418978794084305}
+  - component: {fileID: 2654693547792898193}
   m_Layer: 0
   m_Name: Croissant
   m_TagString: Untagged
@@ -135,6 +136,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2654693547792898193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016249740846602164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdbdd6280a858a49bd9cf07dfa8c25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 609299208961236454, guid: a1b9a100a787c4e19b7dae548155e587, type: 3}
 --- !u!1001 &7201396357205496603
 PrefabInstance:
   m_ObjectHideFlags: 0
