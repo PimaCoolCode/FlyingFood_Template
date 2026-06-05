@@ -9,10 +9,15 @@ public class Target : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
     [SerializeField] private GameObject appearEffect;
     private List<Transform> allSpawns = new List<Transform>();
+    private int score;
 
-    private void Awake()
+    private void Respawn()
     {
-        GetSpawns();
+        score++;
+        Instantiate(hitEffect, transform.position, transform.rotation);
+        Transform randomSpawn = allSpawns[Random.Range(0, allSpawns.Count)];
+        transform.SetPositionAndRotation(randomSpawn.position, randomSpawn.rotation);
+        Instantiate(appearEffect, transform.position, transform.rotation);
     }
 
     private void GetSpawns()
@@ -23,17 +28,14 @@ public class Target : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        GetSpawns();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Respawn();
-    }
-
-    private void Respawn()
-    {
-        Instantiate(hitEffect, transform.position, transform.rotation);
-        Transform randomSpawn = allSpawns[Random.Range(0, allSpawns.Count)];
-        transform.SetPositionAndRotation(randomSpawn.position, randomSpawn.rotation);
-        Instantiate(appearEffect)
     }
 }
 
