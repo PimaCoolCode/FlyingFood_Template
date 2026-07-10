@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,16 @@ public class GameManager : MonoBehaviour
     {
         timer--;
         timertext.text = timer.ToString();
+
+        if (timer <= 0)
+        {
+            Gameover();
+        }
+    }
+
+    private void Gameover()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Start()
