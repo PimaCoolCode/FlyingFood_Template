@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Gameover()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Menu");
     }
 
     private void Start()
