@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,15 +6,18 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int timer = 60;
     [SerializeField] private TMP_Text timertext;
-
+    [SerializeField] private TMP_Text timesUpText;
+   
     private void CountDown()
     {
         timer--;
-        timertext.text = timer.ToString();
+        timertext.text = "Timer: " + timer.ToString();
 
         if (timer <= 0)
         {
-            Gameover();
+            timesUpText.gameObject.SetActive(true);
+            Invoke(nameof(Gameover),2);
+            CancelInvoke(nameof(CountDown));
         }
     }
 
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        timertext.text = timer.ToString();
+        timertext.text = "Timer:" + timer.ToString();
         InvokeRepeating(nameof(CountDown), 1, 1);
     }
 }  

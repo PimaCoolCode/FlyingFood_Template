@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using TMPro;
 
@@ -16,7 +14,7 @@ public class Target : MonoBehaviour
     private void Respawn()
     {
         score++;
-        scoreText.text = score.ToString();
+        scoreText.text ="Score: "+ score.ToString();
         Instantiate(hitEffect, transform.position, transform.rotation);
         Transform randomSpawn = allSpawns[Random.Range(0, allSpawns.Count)];
         transform.SetPositionAndRotation(randomSpawn.position, randomSpawn.rotation);
