@@ -20,5 +20,6 @@ public class FoodCannon : MonoBehaviour
     {
         GameObject newFood = Instantiate(food, shootPoint.position, Random.rotation);
         newFood.GetComponent<Rigidbody>().velocity = shootPoint.forward * shootSpeed;
+        GetComponent<AudioSource>().Play();
     }
 }

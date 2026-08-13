@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
 
     private void Respawn()
     {
+        GetComponent<AudioSource>().Play();
         score++;
         scoreText.text ="Score: "+ score.ToString();
         Instantiate(hitEffect, transform.position, transform.rotation);
