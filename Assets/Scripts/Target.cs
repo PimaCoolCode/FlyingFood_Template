@@ -13,15 +13,23 @@ public class Target : MonoBehaviour
 
     private void Respawn()
     {
-        GetComponent<AudioSource>().Play();
-        score++;
-        scoreText.text ="Score: "+ score.ToString();
         Instantiate(hitEffect, transform.position, transform.rotation);
         Transform randomSpawn = allSpawns[Random.Range(0, allSpawns.Count)];
         transform.SetPositionAndRotation(randomSpawn.position, randomSpawn.rotation);
         Instantiate(appearEffect, transform.position, transform.rotation);
     }
 
+    private void Score()
+    {
+        score++;
+        scoreText.text = "Score: " + score.ToString();
+
+        if (score > PlayerPrefs.GetInt("Highscore"))
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        }
+    }
+       
     private void GetSpawns()
     {
         foreach (Transform spawnPoint in spawnpointholder)
@@ -37,6 +45,8 @@ public class Target : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        GetComponent<AudioSource>().Play();
+        Score();
         Respawn();
     }
 }

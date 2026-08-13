@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Menü : MonoBehaviour
 {
+    [SerializeField] private TMP_Text highscoreText;
     public void StartGame()
     {
 
@@ -14,6 +14,6 @@ public class Menü : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
     }
 }
-
